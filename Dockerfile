@@ -43,7 +43,7 @@ ENV PATH="/app/.venv/bin:$PATH" \
 
 USER appuser
 
-EXPOSE 8080
+EXPOSE 8000
 
-ENTRYPOINT ["uv", "run", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8080"]
+ENTRYPOINT ["uv", "run", "uvicorn", "src.app.main:app", "--host", "0.0.0.0", "--port", "8080"]
 CMD []
