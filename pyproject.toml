@@ -1,0 +1,24 @@
+[project]
+name = "python-starter-template"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.116.1",
+    "pytest>=8.4.1",
+    "uvicorn>=0.35.0",
+    "httpx>=0.27.0",
+]
+
+[tool]
+
+[tool.pyrefly]
+project-includes = ["**/*"]
+project-excludes = ["**/*venv/**/*"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.17.1",
+    "types-python-dateutil>=2.9.0.20250809",
+]
