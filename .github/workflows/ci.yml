@@ -36,3 +36,6 @@ jobs:
 
     - name: Run check
       run: make check
+
+    - name: Run tests
+      run: make test
