@@ -1,12 +1,15 @@
 .PHONY: init format check requirements test run
 
 init:
-	export PATH="$$HOME/.local/bin:$$PATH"
-	wget -qO- https://astral.sh/uv/install.sh | sh
-	uv venv
-	. .venv/bin/activate
-	uv sync
-	uvx pyrefly init
+	set -e; \
+	installer="$$(mktemp)"; \
+	trap 'rm -f "$$installer"' EXIT; \
+	wget -qO "$$installer" https://astral.sh/uv/install.sh; \
+	UV_INSTALL_DIR="$$HOME/.local/bin" sh "$$installer"; \
+	PATH="$$HOME/.local/bin:$$PATH"; export PATH; \
+	uv venv; \
+	uv sync; \
+	uvx pyrefly init; \
 	uvx mypy --version
 
 format:
