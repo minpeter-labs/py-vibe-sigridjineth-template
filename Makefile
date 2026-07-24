@@ -16,9 +16,9 @@ format:
 	uvx ruff format src
 
 check:
-	uvx ruff check src --fix; \
-	uvx ty check src; \
-	uvx mypy src; \
+	uvx ruff check src --fix && \
+	uvx ty check src && \
+	uvx mypy src && \
 	uvx pyrefly check
 
 requirements:
